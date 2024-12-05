@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>2FA</h1>
+
+<p>Enter Google Authenticator code:</p>
+
+<form method="POST" action="{{ url_for('two_factor_auth') }}">
+    {{ form.hidden_tag() }}
+    {{ render_field(form.code)}}
+    {{ form.submit(class="btn btn-outline-light btn-lg px-5")}}<br>
+</form>
+    <a href="{{ url_for('login') }}">Back</a>
+
+{% endblock %}

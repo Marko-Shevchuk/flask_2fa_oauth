@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<p>2FA</p>
+
+<p>Setup Google Authenticator and scan the QR-code.</p>
+<p>After scanning, go to <a href="{{ url_for('index') }}"> this page</a>.</p>
+<img src="data:image/png;base64,{{ qr_code_base64 }}" width="100vh" alt="QR Code for 2FA">
+<p>Or just enter the following code into Google Authenticator: {{ current_user.secret_token }}</p>
+<div>
+    <a href="{{ url_for('index') }}">Back</a>
+</div>
+
+{% endblock %}
