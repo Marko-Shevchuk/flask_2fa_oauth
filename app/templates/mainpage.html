@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>Hi, {{ current_user.email }}</p>
+
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <br>
+
+    {% if user.confirmed %}
+        <p>Account activated.</p>
+    {% else %}
+        <a href="{{ url_for('send_confirmation',email=user.email) }}">Activate account</a>
+         <br>
+    {% endif %}
+    {% if user.is_admin %}
+    <br>
+        <a href="{{ url_for('login_attempts')}}">View logins</a>
+    {% endif %}
+    {% if user.is_two_factor_enabled %}
+        <p>2FA enabled.</p>
+        <a href="{{ url_for('disable_2fa')}}">Disable 2FA</a>
+    {% else %}
+        <p>2FA disabled.</p>
+        <a href="{{ url_for('enable_2fa')}}">Enable 2FA</a>
+
+    {% endif %}
+
+{% endblock %}

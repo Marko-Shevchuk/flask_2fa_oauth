@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>LOGINS</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Success?</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attempt in attempts %}
+            <tr>
+                <td>{{ attempt.email }}</td>
+                <td>{{ '+' if attempt.success else 'FAILED' }}</td>
+                <td>{{ attempt.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>No logins.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<a href="{{ url_for('index') }}">Back</a>
+
+
+{% endblock %}
