@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Basic auth system">
-      <change afterPath="$PROJECT_DIR$/app/templates/confirmation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/enable_2fa.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/login_attempts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/mainpage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/render_field.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/reset_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/reset_password_request.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/two_factor_auth.html" afterDir="false" />
+    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Fix tasks">
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/extensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/extensions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +121,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733364825102</updated>
-      <workItem from="1733364854476" duration="21003000" />
+      <workItem from="1733364854476" duration="27582000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <option name="closed" value="true" />
@@ -154,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733404263929</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fix tasks">
+      <option name="closed" value="true" />
+      <created>1733413801837</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733413801837</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,10 +167,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
     <MESSAGE value="Basic auth system" />
-    <option name="LAST_COMMIT_MESSAGE" value="Basic auth system" />
+    <MESSAGE value="Fix tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix tasks" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/security_auth_project$security_auth_project.coverage" NAME="security_auth_project Coverage Results" MODIFIED="1733395795307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/security_auth_project$run.coverage" NAME="run Coverage Results" MODIFIED="1733412858282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/security_auth_project$run.coverage" NAME="run Coverage Results" MODIFIED="1733414528977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
