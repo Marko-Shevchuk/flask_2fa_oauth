@@ -14,8 +14,6 @@ test-job1:
   stage: test
   script:
     - echo "Running unit tests..."
-    - ls
-    - pip install pytest
     - pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
   coverage: '/TOTAL.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
