@@ -25,6 +25,8 @@ pytest-job:
     - docker pull registry.gitlab.com/modern5813345/flask_2fa_oauth
   script:
     - docker run registry.gitlab.com/modern5813345/flask_2fa_oauth python -m pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
+    - ls
+    - ls /builds/modern5813345/flask_2fa_oauth
   coverage: '/TOTAL.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
     reports:

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Fix docker pulling" />
+    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Fix docker running pytest" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +133,7 @@
       <updated>1733364825102</updated>
       <workItem from="1733364854476" duration="47423000" />
       <workItem from="1733678332954" duration="75000" />
-      <workItem from="1734214762084" duration="19026000" />
+      <workItem from="1734214762084" duration="19480000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <option name="closed" value="true" />
@@ -311,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734299513080</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fix docker running pytest">
+      <option name="closed" value="true" />
+      <created>1734299854795</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1734299854795</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +358,8 @@
     <MESSAGE value="Fix sh execution of python" />
     <MESSAGE value="Fix python image" />
     <MESSAGE value="Fix docker pulling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix docker pulling" />
+    <MESSAGE value="Fix docker running pytest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix docker running pytest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/security_auth_project$security_auth_project.coverage" NAME="security_auth_project Coverage Results" MODIFIED="1733395795307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
