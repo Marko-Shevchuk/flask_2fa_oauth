@@ -15,15 +15,16 @@ build-job:
     - docker build -t registry.gitlab.com/modern5813345/flask_2fa_oauth .
     - docker push registry.gitlab.com/modern5813345/flask_2fa_oauth
 
-
-test-job1:
+pytest-job:
   stage: test
-  image: python3.11-slim
+  image: docker:latest
   services:
     - docker:dind
+  before_script:
+    - echo "$GITLAB_REGISTRY_ACCESS_TOKEN" | docker login $CI_REGISTRY -u Marko-Shevchuk --password-stdin
+    - docker pull registry.gitlab.com/modern5813345/flask_2fa_oauth
   script:
-    - echo "Running unit tests..."
-    - python -m pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
+    - docker run registry.gitlab.com/modern5813345/flask_2fa_oauth pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
   coverage: '/TOTAL.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
     reports:
@@ -33,7 +34,6 @@ test-job1:
       junit: report.xml
     paths:
       - report.xml
-
 
 deploy-prod:
   stage: deploy
