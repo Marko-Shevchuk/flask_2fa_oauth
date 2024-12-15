@@ -18,7 +18,7 @@ build-job:
 
 test-job1:
   stage: test
-  image: docker:latest
+  image: python3.11-slim
   services:
     - docker:dind
   script:
