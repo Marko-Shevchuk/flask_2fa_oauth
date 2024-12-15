@@ -6,8 +6,8 @@ build-job:
   before_script:
     - echo "$GITLAB_REGISTRY_ACCESS_TOKEN" | docker login $CI_REGISTRY -u Marko-Shevchuk --password-stdin
   script:
-    - docker build -t registry.gitlab.com/"$CI_REGISTRY_USER"/flask-docker-multistage:latest .
-    - docker push registry.gitlab.com/"$CI_REGISTRY_USER"/flask-docker-multistage:latest
+    - docker build -t registry.gitlab.com/modern5813345/flask_2fa_oauth .
+    - docker push registry.gitlab.com/modern5813345/flask_2fa_oauth
 
 
 test-job1:
