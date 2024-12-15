@@ -13,9 +13,14 @@ build-job:
 test-job1:
   stage: test
   script:
-    - echo "This job tests something"
-#    - pip install pytest
-#    - pytest test_placeholder.py
+    - echo "Running unit tests..."
+    - pytest -s -v --junitxml=report.xml test_placeholder.py
+  artifacts:
+    reports:
+      junit: report.xml
+    paths:
+      - report.xml
+
 
 deploy-prod:
   stage: deploy
