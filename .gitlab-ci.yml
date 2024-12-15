@@ -23,7 +23,7 @@ test-job1:
     - docker:dind
   script:
     - echo "Running unit tests..."
-    - pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
+    - python -m pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
   coverage: '/TOTAL.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
   artifacts:
     reports:

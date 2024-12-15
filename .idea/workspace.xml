@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Fix python image for test stage" />
+    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Fix docker dind" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +133,7 @@
       <updated>1733364825102</updated>
       <workItem from="1733364854476" duration="47423000" />
       <workItem from="1733678332954" duration="75000" />
-      <workItem from="1734214762084" duration="17507000" />
+      <workItem from="1734214762084" duration="17833000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <option name="closed" value="true" />
@@ -279,7 +279,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734297911787</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fix docker dind">
+      <option name="closed" value="true" />
+      <created>1734298517355</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1734298517355</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +322,8 @@
     <MESSAGE value="Fix pytest" />
     <MESSAGE value="Attempt to fix registry" />
     <MESSAGE value="Fix python image for test stage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix python image for test stage" />
+    <MESSAGE value="Fix docker dind" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix docker dind" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/security_auth_project$security_auth_project.coverage" NAME="security_auth_project Coverage Results" MODIFIED="1733395795307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
