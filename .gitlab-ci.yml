@@ -1,3 +1,9 @@
+stages:
+ - build
+ - test
+ - deploy
+
+
 build-job:
   stage: build
   image: docker:latest
@@ -12,6 +18,7 @@ build-job:
 
 test-job1:
   stage: test
+  image: python:3.11-slim
   script:
     - echo "Running unit tests..."
     - pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
