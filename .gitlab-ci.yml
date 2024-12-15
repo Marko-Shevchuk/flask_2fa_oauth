@@ -1,7 +1,14 @@
 build-job:
   stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" --password-stdin "$CI_REGISTRY"
   script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
+    - docker build -t registry.gitlab.com/"$CI_REGISTRY_USER"/flask-docker-multistage:latest .
+    - docker push registry.gitlab.com/"$CI_REGISTRY_USER"/flask-docker-multistage:latest
+
 
 test-job1:
   stage: test
