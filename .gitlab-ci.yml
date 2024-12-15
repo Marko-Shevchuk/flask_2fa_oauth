@@ -14,12 +14,15 @@ test-job1:
   stage: test
   script:
     - echo "Running unit tests..."
-    - pytest -s -v --junitxml=report.xml test_placeholder.py
+    - pytest -s -v --junitxml=report.xml --cov=test_placeholder.py test_placeholder.py
+    - pytest-cov --fail-under 0.5
   artifacts:
     reports:
       junit: report.xml
+      cobertura: coverage.xml
     paths:
       - report.xml
+      - coverage.xml
 
 
 deploy-prod:
