@@ -1,7 +1,42 @@
 stages:
- - build
- - test
- - deploy
+  - lint
+  - test
+  - build
+  - deploy
+
+lint-job:
+  stage: lint
+  image: python:3.11-slim
+  before_script:
+    - pip install ruff
+  script:
+    - echo "Linting..."
+    - ruff check
+
+pytest-job:
+  stage: test
+  image: python:3.11-slim
+  before_script:
+    - pip install -r requirements.txt
+  script:
+    - echo "Running unit tests..."
+    - pytest -s -v --junitxml=report.xml test_placeholder.py
+  artifacts:
+    reports:
+      junit: report.xml
+    paths:
+      - report.xml
+
+coverage-job:
+  stage: test
+  image: python:3.11-slim
+  before_script:
+    - pip install -r requirements.txt
+  script:
+    - echo "Running tests with coverage..."
+    - pytest --cov --cov-fail-under=50 -s -v test_placeholder.py
+  coverage: '/TOTAL.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+
 
 
 build-job:
@@ -12,34 +47,10 @@ build-job:
   before_script:
     - echo "$GITLAB_REGISTRY_ACCESS_TOKEN" | docker login $CI_REGISTRY -u Marko-Shevchuk --password-stdin
   script:
-    - docker build -t registry.gitlab.com/modern5813345/flask_2fa_oauth .
-    - docker push registry.gitlab.com/modern5813345/flask_2fa_oauth
-
-pytest-job:
-  stage: test
-  image: docker:latest
-  services:
-    - docker:dind
-  before_script:
-    - echo "$GITLAB_REGISTRY_ACCESS_TOKEN" | docker login $CI_REGISTRY -u Marko-Shevchuk --password-stdin
-    - docker pull registry.gitlab.com/modern5813345/flask_2fa_oauth
-  script:
-    - docker run registry.gitlab.com/modern5813345/flask_2fa_oauth python -m pytest --cov --cov-report term --cov-report xml:coverage.xml -s -v --junitxml=report.xml test_placeholder.py
-    - docker run registry.gitlab.com/modern5813345/flask_2fa_oauth ls
-    - ls
-    - ls /builds/modern5813345/flask_2fa_oauth
-  coverage: '/TOTAL.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
-  artifacts:
-    reports:
-      coverage_report:
-        coverage_format: cobertura
-        path: coverage.xml
-      junit: report.xml
-    paths:
-      - report.xml
+    - docker build -t registry.gitlab.com/modern5813345/flask_2fa_oauth:latest .
+    - docker push registry.gitlab.com/modern5813345/flask_2fa_oauth:latest
 
 deploy-prod:
   stage: deploy
   script:
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-  environment: production
