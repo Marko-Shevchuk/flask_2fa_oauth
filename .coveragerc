@@ -1,0 +1,7 @@
+[run]
+omit =
+    */app/*
+    */.venv/*
+    */instance/*
+    */migrations/*
+    */run_flask.sh
