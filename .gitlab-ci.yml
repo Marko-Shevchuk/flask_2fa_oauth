@@ -57,8 +57,10 @@ build-job:
 
 deploy:
  stage: deploy
- image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+ image: docker:dind
  before_script:
+  - yum install -y python3
+  - pip3 install awscli
   - aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 329599629952.dkr.ecr.eu-central-1.amazonaws.com
  script:
   - docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/flask_2fa_oauth:latest .
