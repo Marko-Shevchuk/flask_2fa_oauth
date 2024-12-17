@@ -46,9 +46,9 @@ build-job:
   script:
     - docker build -t registry.gitlab.com/modern5813345/flask_2fa_oauth:latest .
     - docker push registry.gitlab.com/modern5813345/flask_2fa_oauth:latest
-#  rules:
-#    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-#    - if: '$CI_COMMIT_BRANCH == "main"'
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
 
 deploy:
   stage: deploy
@@ -60,6 +60,6 @@ deploy:
   script:
     - docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest .
     - docker push 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest
-#  rules:
-#    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-#    - if: '$CI_COMMIT_BRANCH == "main"'
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
