@@ -55,6 +55,7 @@ build-job:
 
 
 deploy:
+  stage: deploy
   image: bentolor/docker-dind-awscli
   services:
     - name: docker:dind
