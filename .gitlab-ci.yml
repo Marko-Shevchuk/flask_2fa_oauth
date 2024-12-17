@@ -54,14 +54,13 @@ build-job:
 #    - if: '$CI_COMMIT_BRANCH == "main"'
 
 
-
 deploy:
- stage: deploy
- image: docker:dind
- before_script:
-  - yum install -y python3
-  - pip3 install awscli
-  - aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 329599629952.dkr.ecr.eu-central-1.amazonaws.com
- script:
-  - docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/flask_2fa_oauth:latest .
-  - docker push 329599629952.dkr.ecr.eu-central-1.amazonaws.com/flask_2fa_oauth:latest
+  image: bentolor/docker-dind-awscli
+  services:
+    - name: docker:dind
+  before_script:
+    - pip3 install awscli
+    - aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 329599629952.dkr.ecr.eu-central-1.amazonaws.com
+  script:
+    - docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/flask_2fa_oauth:latest .
+    - docker push 329599629952.dkr.ecr.eu-central-1.amazonaws.com/flask_2fa_oauth:latest
