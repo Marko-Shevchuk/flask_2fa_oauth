@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Added rules for building">
-      <change afterPath="$PROJECT_DIR$/cloudformation.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Added deploy to ECR" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -364,7 +360,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734318386161</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added deploy to ECR">
+      <option name="closed" value="true" />
+      <created>1734411659864</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1734411659864</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +386,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Basic auth system" />
     <MESSAGE value="Fix tasks" />
     <MESSAGE value="Add Dockerfile" />
     <MESSAGE value="Fix Dockerfile to multistage" />
@@ -407,7 +410,8 @@
     <MESSAGE value="Rewrite gitlab-ci again" />
     <MESSAGE value="Comment linting" />
     <MESSAGE value="Added rules for building" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added rules for building" />
+    <MESSAGE value="Added deploy to ECR" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added deploy to ECR" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/security_auth_project$security_auth_project.coverage" NAME="security_auth_project Coverage Results" MODIFIED="1733395795307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
