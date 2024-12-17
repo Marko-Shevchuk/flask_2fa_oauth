@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Clean cicd file" />
+    <list default="true" id="df4f422b-d86c-4d7a-8510-925a0eff6d39" name="Changes" comment="Re-add stage rules">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -440,7 +443,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734422732163</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Re-add stage rules">
+      <option name="closed" value="true" />
+      <created>1734423087708</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1734423087708</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +469,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix access token" />
     <MESSAGE value="Add unit test job" />
     <MESSAGE value="Add code coverage with 50% limit" />
     <MESSAGE value="Fix code coverage" />
@@ -483,7 +493,8 @@
     <MESSAGE value="Fix AWS ECR namespace" />
     <MESSAGE value="Add merge main rules back" />
     <MESSAGE value="Clean cicd file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean cicd file" />
+    <MESSAGE value="Re-add stage rules" />
+    <option name="LAST_COMMIT_MESSAGE" value="Re-add stage rules" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/security_auth_project$security_auth_project.coverage" NAME="security_auth_project Coverage Results" MODIFIED="1733395795307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
