@@ -74,7 +74,8 @@ jobs:
   build:
     needs: [test, coverage]
     runs-on: ubuntu-latest
-    image: bentolor/docker-dind-awscli
+    container:
+      image: bentolor/docker-dind-awscli
     steps:
       - uses: actions/checkout@v3
       - name: Login to GitHub Container Registry
@@ -96,7 +97,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    image: bentolor/docker-dind-awscli
+    container:
+      image: bentolor/docker-dind-awscli
     steps:
       - uses: actions/checkout@v3
       - name: Login to AWS ECR
