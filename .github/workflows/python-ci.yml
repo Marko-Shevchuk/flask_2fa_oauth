@@ -77,6 +77,9 @@ jobs:
   build:
     needs: [test, coverage]
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     environment: prod
     container:
       image: bentolor/docker-dind-awscli
@@ -96,6 +99,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     container:
       image: bentolor/docker-dind-awscli
     steps:
