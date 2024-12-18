@@ -106,13 +106,15 @@ jobs:
       image: bentolor/docker-dind-awscli
     steps:
       - uses: actions/checkout@v3
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_DEFAULT_REGION }}
       - name: Login to AWS ECR
         run: |
           aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 329599629952.dkr.ecr.eu-central-1.amazonaws.com
-        env:
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_ACCESS_KEY_ID: ${{ vars.AWS_ACCESS_KEY_ID }}
-          AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
       - name: Build Docker image
         run: |
           docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest .
