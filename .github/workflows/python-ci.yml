@@ -82,21 +82,16 @@ jobs:
       image: bentolor/docker-dind-awscli
     steps:
       - uses: actions/checkout@v3
-      - name: Login to GitHub Container Registry
-        env:
-            CONTAINER_REGISTRY_KEY: ${{ secrets.CONTAINER_REGISTRY_KEY }}
-        run: |
-            echo $CONTAINER_REGISTRY_KEY | docker login ghcr.io -u Marko-Shevchuk --password-stdin
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
       - name: Build Docker image
         run: |
           docker build -t ghcr.io/Marko-Shevchuk/flask_2fa_oauth:latest .
           docker push ghcr.io/Marko-Shevchuk/flask_2fa_oauth:latest
-      - name: Upload Docker image
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: |
-            ghcr.io/Marko-Shevchuk/flask_2fa_oauth:latest
 
   deploy:
     needs: build
@@ -105,11 +100,12 @@ jobs:
       image: bentolor/docker-dind-awscli
     steps:
       - uses: actions/checkout@v3
-      - name: Login to GitHub Container Registry
-        env:
-          CONTAINER_REGISTRY_KEY: ${{ secrets.CONTAINER_REGISTRY_KEY }}
-        run: |
-          echo $CONTAINER_REGISTRY_KEY | docker login ghcr.io -u Marko-Shevchuk --password-stdin
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
       - name: Login to AWS ECR
         run: |
           aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 329599629952.dkr.ecr.eu-central-1.amazonaws.com
@@ -121,9 +117,3 @@ jobs:
         run: |
           docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest .
           docker push 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest
-      - name: Upload Docker image
-        uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: |
-            329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest
