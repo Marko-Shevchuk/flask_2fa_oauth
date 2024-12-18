@@ -1,0 +1,115 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff
+      - name: Lint
+        run: |
+          echo "Linting..."
+
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run unit tests
+        run: |
+          echo "Running unit tests..."
+          pytest -s -v --junitxml=report.xml test_placeholder.py
+      - name: Upload JUnit report
+        uses: actions/upload-artifact@v3
+        with:
+          name: report.xml
+          path: report.xml
+
+  coverage:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run tests with coverage
+        run: |
+          echo "Running tests with coverage..."
+          pytest --cov --cov-fail-under=50 -s -v test_placeholder.py
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: htmlcov/index.html
+
+  build:
+    needs: [test, coverage]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    container:
+      image: bentolor/docker-dind-awscli
+    steps:
+      - uses: actions/checkout@v3
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/marko-shevchuk/flask-2fa-oauth:latest .
+          docker push ghcr.io/marko-shevchuk/flask-2fa-oauth:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    container:
+      image: bentolor/docker-dind-awscli
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+      - name: Login to AWS ECR
+        run: |
+          aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 329599629952.dkr.ecr.eu-central-1.amazonaws.com
+      - name: Build Docker image
+        run: |
+          docker build -t 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest .
+          docker push 329599629952.dkr.ecr.eu-central-1.amazonaws.com/mamkolab6/flask_2fa_oauth:latest
