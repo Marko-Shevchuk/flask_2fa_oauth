@@ -51,7 +51,7 @@ jobs:
           path: report.xml
 
   coverage:
-    needs: test
+    needs: lint
     runs-on: ubuntu-latest
     environment: prod
     steps:
