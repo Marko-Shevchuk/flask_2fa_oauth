@@ -1,8 +1,10 @@
 name: Python CI
 
-#on:
-#  push:
-#    branches: [ main ]
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
 #  pull_request:
 #    branches: [ main ]
 
