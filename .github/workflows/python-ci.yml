@@ -90,8 +90,8 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/Marko-Shevchuk/flask2faoauth:latest .
-          docker push ghcr.io/Marko-Shevchuk/flask2faoauth:latest
+          docker build -t ghcr.io/marko-shevchuk/flask-2fa-oauth:latest .
+          docker push ghcr.io/marko-shevchuk/flask-2fa-oauth:latest
 
   deploy:
     needs: build
