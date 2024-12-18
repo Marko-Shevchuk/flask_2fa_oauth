@@ -75,7 +75,6 @@ jobs:
     image: bentolor/docker-dind-awscli
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Docker
       - name: Login to GitHub Container Registry
         env:
             CONTAINER_REGISTRY_KEY: ${{ secrets.CONTAINER_REGISTRY_KEY }}
